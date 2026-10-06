@@ -31,7 +31,6 @@ body.design-two :is(button,input,select,textarea,.btn,.nav-link,.form-control,.f
 body.design-two :is(h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,.display-heading,.story-heading,.cta-heading){font-family:var(--ka-font)!important;font-weight:400!important;letter-spacing:-.02em;line-height:1.08;text-wrap:balance;color:inherit}
 body.design-two :is(h3,h4,h5,h6,.h3,.h4,.h5,.h6){font-weight:500!important;letter-spacing:-.01em;line-height:1.25}
 body.design-two :is(h1,h2,.display-heading,.story-heading,.cta-heading) em{font-family:inherit;font-style:normal;color:var(--ka-soft)}
-body.design-two .h-line{white-space:nowrap}
 body.design-two main p{max-width:68ch}
 body.design-two .text-ink-soft{color:var(--ka-muted)!important}
 body.design-two main .small,body.design-two main small{font-size:.9375rem}
@@ -39,7 +38,7 @@ body.design-two main .small,body.design-two main small{font-size:.9375rem}
 /* Section rhythm */
 body.design-two main .section{padding-block:var(--ka-section);border-top:0}
 body.design-two .section-alt,body.design-two .pathways-section{background:var(--ka-cream)}
-body.design-two main .section h2:not(.h3):not(.h4):not(.h5):not(.cta-heading),body.design-two .display-heading,body.design-two .story-heading{font-size:var(--ka-fs-h2)!important;line-height:1.06;margin-bottom:1.5rem}
+body.design-two main .section h2:not(.h3,.h4,.h5,.cta-heading),body.design-two .display-heading,body.design-two .story-heading{font-size:var(--ka-fs-h2)!important;line-height:1.06;margin-bottom:1.5rem}
 body.design-two .section-top{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:end;gap:2rem 4rem;margin-bottom:var(--ka-block)}
 body.design-two .section-top h2{margin:0!important}
 body.design-two .section-top>p,body.design-two .section-top>a{justify-self:end;font-size:var(--ka-fs-body)!important;color:var(--ka-muted);margin:0;max-width:26rem}
@@ -216,7 +215,7 @@ body.design-two .form-note,body.design-two .form-ka .form-text{font-size:.875rem
 body.design-two .policy-toc{top:calc(var(--ka-nav-h) + 1.5rem)!important;padding:1.5rem;border:1px solid var(--ka-line);border-radius:var(--ka-radius);background:var(--ka-white)}
 body.design-two .policy-toc a{font-size:.9375rem!important;line-height:1.4;padding:.4rem 0;color:var(--ka-muted)}
 body.design-two .policy-toc a:is(:hover,.active){color:var(--ka-ink)}
-body.design-two .policy-body h2{font-size:clamp(1.5rem,1.25rem + .8vw,2rem)!important;font-weight:400!important;padding-top:2rem;margin:2.5rem 0 1rem;scroll-margin-top:calc(var(--ka-nav-h) + 1.5rem)}
+body.design-two main .section .policy-body h2{font-size:clamp(1.5rem,1.25rem + .8vw,2rem)!important;font-weight:400!important;padding-top:2rem;margin:2.5rem 0 1rem;scroll-margin-top:calc(var(--ka-nav-h) + 1.5rem)}
 body.design-two .policy-body :is(p,li){font-size:var(--ka-fs-body);line-height:1.75;color:var(--ka-text)}
 
 /* ---------- CTA: white, Google press-note typography (measured on blog.google, Oct 2026) ---------- */
@@ -315,7 +314,14 @@ body.design-two .footer-ka .to-top:hover span{transform:translateY(-.25rem)}
 body.photo-page.design-two:not(.plain-page) .photo-hero::before{content:'';position:absolute;inset:auto 0 0 auto;width:min(60rem,70%);height:75%;z-index:-1;pointer-events:none;background:radial-gradient(70% 70% at 85% 85%,rgba(0,0,0,.55),rgba(0,0,0,0) 70%)}
 body.photo-page.design-two:not(.plain-page) .photo-hero-description{text-shadow:0 1px 18px rgba(0,0,0,.45)}
 body.design-two .h-line{white-space:normal}
-@media(min-width:992px){body.design-two .h-line{white-space:nowrap}}
+@media(min-width:992px){body.design-two :is(.photo-hero-card h1,[data-fit-line]) .h-line{white-space:nowrap}}
+/* Home: the page H1 runs full width above the intro columns; tagline keeps the brand line */
+body.home-page.design-two .intro-title{font-size:var(--ka-fs-display)!important;line-height:1.04!important;letter-spacing:-.03em!important;margin:0 0 var(--ka-block)!important}
+body.home-page.design-two .intro-title em{color:var(--ka-soft)}
+body.home-page.design-two .intro-tagline{font-size:clamp(1.5rem,1.1rem + 1.4vw,2.25rem);line-height:1.15;letter-spacing:-.02em;color:var(--ka-ink);margin:0 0 1.5rem;max-width:none}
+body.home-page.design-two .intro-tagline span{color:var(--ka-soft)}
+/* Hero corner labels stay on one line */
+body.home-page.design-two .hero .corner-panel h2{white-space:nowrap;font-size:clamp(2rem,1.2rem + 2.2vw,3rem)!important}
 
 /* Audit follow-ups */
 body.design-two main p,body.design-two .footer-ka p{text-wrap:pretty}
@@ -323,3 +329,4 @@ body.design-two .home-process .process-photo{max-width:none!important;width:100%
 body.design-two .home-process .process-photo img{width:100%}
 body.design-two .home-process .text-link{color:var(--ka-ivory)!important}
 @media(max-width:600px){body.design-two .row.g-5{--bs-gutter-x:2.75rem}}
+body.home-page.design-two .intro-section .row{align-items:flex-start!important}
