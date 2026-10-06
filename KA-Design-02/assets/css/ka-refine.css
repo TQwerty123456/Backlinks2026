@@ -2,15 +2,12 @@
 
 /* ---------- Logo: trimmed artwork (assets/img/ka-logo.png), never clipped ---------- */
 /* Header logo: original artwork 153px tall, -10% then a further -20% (now ~110px); footer keeps its size. */
-body .navbar-ka.navbar .navbar-brand-ka{--logo-h:112px;display:flex;align-items:center;width:auto!important;min-width:0!important;height:var(--logo-h)!important;margin-block:0;overflow:visible!important}
-body .footer-ka .navbar-brand-ka{--logo-h:157px;display:inline-flex;width:auto!important;min-width:0!important;height:var(--logo-h)!important;overflow:visible!important}
+body .navbar-ka.navbar .navbar-brand-ka{--logo-h:7rem;display:flex;align-items:center;width:auto!important;min-width:0!important;height:var(--logo-h)!important;margin-block:0;overflow:visible!important}
+body .footer-ka .navbar-brand-ka{--logo-h:7.5rem;display:inline-flex;width:auto!important;min-width:0!important;height:var(--logo-h)!important;overflow:visible!important}
 body .navbar-ka.navbar .navbar-brand-ka img,body .navbar-ka.navbar.past-hero .navbar-brand-ka img,body .footer-ka .navbar-brand-ka img{position:static!important;width:auto!important;height:100%!important;max-width:none!important;padding:0!important}
-body .navbar-ka.navbar{padding-block:12px}
-@media(min-width:1800px){
- body .navbar-ka.navbar .navbar-brand-ka{--logo-h:clamp(126px,5.84vw,226px)}
- body .footer-ka .navbar-brand-ka{--logo-h:clamp(176px,8.1vw,313px)}
-}
-@media(max-width:991px){body .navbar-ka.navbar .navbar-brand-ka{--logo-h:85px}}
+body .navbar-ka.navbar{padding-block:.75rem}
+/* 1800px+ scales through the root font size set in ka-system.css */
+@media(max-width:991px){body .navbar-ka.navbar .navbar-brand-ka{--logo-h:5.3125rem}}
 
 /* ---------- Navbar: hide on scroll down, show on scroll up (assets/js/nav-headroom.js) ---------- */
 body .navbar-ka.navbar{transition:transform .45s cubic-bezier(.22,.61,.36,1),background-color .35s,border-color .35s,box-shadow .35s}
@@ -18,11 +15,11 @@ body .navbar-ka.navbar.nav-hidden{transform:translateY(calc(-100% - 40px))}
 @media(prefers-reduced-motion:reduce){body .navbar-ka.navbar{transition:none}}
 
 /* ---------- Home pathway cards: photo runs edge to edge, label sits on the photo ---------- */
-body .pathways .pathway{--pathway-pad:35px;padding:var(--pathway-pad)}
+body .pathways .pathway{--pathway-pad:2.1875rem;padding:var(--pathway-pad)}
 body .pathways .pathway .pathway-photo{width:calc(100% + 2*var(--pathway-pad));max-width:none;height:auto;margin:calc(-1*var(--pathway-pad)) calc(-1*var(--pathway-pad)) 34px;aspect-ratio:3/2;object-fit:cover;border-radius:0}
 body .pathways .pathway .pathway-top{position:absolute;inset:0 0 auto;z-index:2;margin:0;padding:calc(var(--pathway-pad) - 4px) var(--pathway-pad) 64px;background:linear-gradient(180deg,#000000a6,#00000000);color:#fff;pointer-events:none}
 body .pathways .pathway .pathway-top span,body .pathways .pathway .pathway-top i{color:#fff}
-@media(max-width:991px){body .pathways .pathway{--pathway-pad:25px}}
+@media(max-width:991px){body .pathways .pathway{--pathway-pad:1.5625rem}}
 /* Both cards share one white body under the photo */
 body .pathways .pathway,body .pathways .pathway:hover{background:#fff;color:#161616;border:1px solid #16161612}
 body .pathways .pathway h3{color:#161616}
