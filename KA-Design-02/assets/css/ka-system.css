@@ -282,3 +282,10 @@ body.photo-page.design-two:not(.plain-page) .photo-hero::before{content:'';posit
 body.photo-page.design-two:not(.plain-page) .photo-hero-description{text-shadow:0 1px 18px rgba(0,0,0,.45)}
 body.design-two .h-line{white-space:normal}
 @media(min-width:992px){body.design-two .h-line{white-space:nowrap}}
+
+/* Audit follow-ups */
+body.design-two main p,body.design-two .footer-ka p{text-wrap:pretty}
+body.design-two .home-process .process-photo{max-width:none!important;width:100%;margin-inline:0}
+body.design-two .home-process .process-photo img{width:100%}
+body.design-two .home-process .text-link{color:var(--ka-ivory)!important}
+@media(max-width:600px){body.design-two .row.g-5{--bs-gutter-x:2.75rem}}
