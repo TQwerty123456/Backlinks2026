@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{const city=new URLSearchParams(location.search).get('city');if(['Sydney','Melbourne'].includes(city)){const field=document.querySelector('#location');if(field)field.value=city;}});

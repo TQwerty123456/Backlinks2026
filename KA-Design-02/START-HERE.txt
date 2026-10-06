@@ -1,0 +1,4 @@
+Extract the complete folder, then double-click index.html. All images, fonts, styles and scripts are local. Keep assets next to the HTML pages. Contact enquiries open your email app for review and sending.
+
+Hero photograph: colour edit using built-in imagegen, saved at assets/img/hero-colour.png. Prompt: Preserve the Sydney Opera House / Flinders Street split composition; rich natural colour, crisp HDR photography; no overlay text, logos or UI.
+Workspace photograph: built-in imagegen; assets/img/workspace.png. Prompt: contemporary Australian office desk with laptop, document folders and notebook; natural HDR photography, no readable text or logos.

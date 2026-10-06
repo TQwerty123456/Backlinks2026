@@ -1,0 +1,8 @@
+/* Supplied transparent PNG, framed through CSS without altering the artwork. */
+body .navbar-brand-ka{--logo-size:160px;position:relative;display:block;width:var(--logo-size);height:calc(var(--logo-size)*.9625);min-width:var(--logo-size);padding:0;margin-block:0;overflow:hidden;background:transparent!important;border:0;border-radius:0;flex-shrink:0}
+body .navbar-brand-ka img,body .navbar-ka .navbar-brand-ka img,body .navbar-ka.past-hero .navbar-brand-ka img,body .footer-ka .navbar-brand-ka img{position:absolute;width:calc(var(--logo-size)*2.0625)!important;height:calc(var(--logo-size)*1.375)!important;max-width:none!important;left:calc(var(--logo-size)*-.53125);top:calc(var(--logo-size)*-.14375);padding:0!important;background:transparent!important;border:0!important;border-radius:0!important;object-fit:contain;filter:brightness(0)!important;box-shadow:none!important;transform:none!important}
+body.design-two .navbar-ka:not(.past-hero) .navbar-brand-ka img{filter:brightness(0) invert(1)!important;filter:brightness(0) invert(1) drop-shadow(0 2px 5px #0005)!important}
+body.design-two.plain-page .navbar-ka .navbar-brand-ka img{filter:brightness(0)!important}
+body .navbar-ka{padding-block:5px}
+@media(min-width:1800px){body .navbar-brand-ka{--logo-size:clamp(180px,8.3vw,320px)}}
+@media(max-width:991px){body .navbar-ka .navbar-brand-ka{--logo-size:120px}}

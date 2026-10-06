@@ -1,0 +1,11 @@
+The educator-conversation.png asset is an AI-generated illustrative education recruitment scene, made with the built-in ImageGen tool. It does not depict KA staff or clients. Prompt: Candid professional conversation between three adult educators in an Australian school meeting room; wide editorial photograph, monochrome with warm cream highlights; no logos or text. Existing founder photographs remain the supplied KA photographs.
+6 October 2026 photography update — built-in ImageGen.
+Generated four separate illustrative editorial photographs, saved in assets/img:
+- teacher-library.jpg: teacher preparing lessons in a school library.
+- career-mentoring.jpg: adult educators discussing a CV in a quiet office.
+- new-school-courtyard.jpg: contemporary Australian school courtyard.
+- staff-planning.jpg: adults planning lessons in a staff room.
+Prompt: Create four equal natural-colour documentary photographic panels, each wide 3:2. A female teacher preparing lessons in a bright library; two adult educators discussing a CV in an office; a contemporary Australian school courtyard with eucalyptus trees; diverse adult teachers planning around a table. Natural daylight and believable people, no text or logos. Each panel is a distinct complete scene.
+Images are illustrative, not photographs of KA staff or client schools. The generated contact sheet was split into four standalone assets.
+Logo: clean SVG reconstruction of the existing KA / TALENT PARTNERS / AIM:HIRE lockup, replacing the low-contrast raster asset.
+Section layout reference: https://www.ninedegree.in/ — generous typography, open spacing, rounded photo cards and service rows; KA content and black/white/cream palette retained.
