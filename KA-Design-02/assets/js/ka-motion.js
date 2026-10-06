@@ -7,3 +7,19 @@ document.addEventListener('DOMContentLoaded',()=>{
  const io=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}}},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
  items.forEach(el=>io.observe(el));
 });
+
+// Hero H1 sits on one line from 992px up (including zoomed-out and TV views); phones wrap between phrases.
+(()=>{
+ const run=()=>document.querySelectorAll('.photo-hero-card h1,[data-fit-line]').forEach(h=>{
+  h.style.removeProperty('font-size');h.style.removeProperty('white-space');
+  if(innerWidth<992)return;
+  const max=parseFloat(getComputedStyle(h).fontSize),min=parseFloat(getComputedStyle(document.documentElement).fontSize)*2.5;
+  h.style.whiteSpace='nowrap';
+  let size=max;
+  for(let i=0;i<4&&h.scrollWidth>h.clientWidth&&size>min;i++){size=Math.max(min,Math.floor(size*h.clientWidth/h.scrollWidth*.98));h.style.setProperty('font-size',size+'px','important');}
+  h.style.whiteSpace=h.scrollWidth>h.clientWidth?'':'nowrap';
+ });
+ let t;addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(run,120);});
+ document.addEventListener('DOMContentLoaded',run);
+ document.fonts?.ready.then(run);
+})();

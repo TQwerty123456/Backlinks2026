@@ -280,3 +280,5 @@ body.design-two .footer-ka .to-top:hover span{transform:translateY(-.25rem)}
 /* Hero supporting text stays readable over busy photographs */
 body.photo-page.design-two:not(.plain-page) .photo-hero::before{content:'';position:absolute;inset:auto 0 0 auto;width:min(60rem,70%);height:75%;z-index:-1;pointer-events:none;background:radial-gradient(70% 70% at 85% 85%,rgba(0,0,0,.55),rgba(0,0,0,0) 70%)}
 body.photo-page.design-two:not(.plain-page) .photo-hero-description{text-shadow:0 1px 18px rgba(0,0,0,.45)}
+body.design-two .h-line{white-space:normal}
+@media(min-width:992px){body.design-two .h-line{white-space:nowrap}}
