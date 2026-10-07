@@ -330,3 +330,59 @@ body.design-two .home-process .process-photo img{width:100%}
 body.design-two .home-process .text-link{color:var(--ka-ivory)!important}
 @media(max-width:600px){body.design-two .row.g-5{--bs-gutter-x:2.75rem}}
 body.home-page.design-two .intro-section .row{align-items:flex-start!important}
+
+/* ======================================================================
+   Round 3: one description size at the headline's left edge,
+   photo backgrounds for text-only sections, smaller header logo.
+   ====================================================================== */
+:root{--ka-fs-lead:clamp(1.125rem,1.02rem + .35vw,1.25rem);--ka-nav-h:7.5625rem}
+@media(max-width:991px){:root{--ka-nav-h:6.0625rem}}
+
+/* Every description: same size, same measure, starts at the headline's left edge */
+body.design-two :is(.section-description,.intro-copy,.story-intro,.about-lead,.section-top>p,.photo-hero-description,.cta-section .cta-text,.intro-tagline,.intro-note){font-size:var(--ka-fs-lead)!important;line-height:1.55!important;font-weight:400!important;letter-spacing:0;max-width:40rem!important;margin-left:0!important;margin-right:0!important;text-align:left!important}
+body.design-two :is(.section-description,.intro-copy,.story-intro,.about-lead,.section-top>p,.intro-tagline,.intro-note){color:var(--ka-text)!important}
+body.home-page.design-two .intro-tagline{margin-bottom:1rem}
+body.home-page.design-two .intro-note{margin-bottom:2rem!important}
+body.design-two .section-description{margin-top:1.25rem!important}
+/* Section headers stack: eyebrow, headline, then description and link underneath */
+body.design-two .section-top{display:block!important}
+body.design-two .section-top>*{justify-self:start!important}
+body.design-two .section-top>p{margin-top:1.25rem!important}
+body.design-two .section-top>a{margin-top:1.25rem}
+/* Inner heroes: eyebrow, H1, description and button stacked at the H1's left edge, sitting low on the photo */
+body.photo-page.design-two .photo-hero-card{display:flex!important;flex-direction:column;justify-content:flex-end;align-items:flex-start}
+body.photo-page.design-two .photo-hero-card h1{width:100%}
+body.photo-page.design-two .photo-hero-description{margin:1.5rem 0 2rem!important}
+body.photo-page.design-two .policy-date{margin-top:1.25rem!important}
+body.photo-page.design-two:not(.plain-page) .photo-hero::before{inset:auto auto 0 0;width:min(70rem,85%);height:70%;background:radial-gradient(75% 75% at 15% 90%,rgba(0,0,0,.55),rgba(0,0,0,0) 72%)}
+/* Register (for teachers) and contact form sections: text left, form right */
+body.design-two :is(.section-alt:has(#register),#contact-enquiry) :is(.text-center,.text-start){text-align:left!important}
+body.design-two .section-alt:has(#register) .mx-auto{margin-left:0!important}
+@media(min-width:992px){
+ body.design-two .section-alt:has(#register)>.container{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2.5rem,1rem + 4vw,6rem);align-items:start}
+ body.design-two .section-alt:has(#register)>.container>.row{margin:0!important;--bs-gutter-x:0}
+ body.design-two .section-alt:has(#register)>.container>.row>[class*=col-]{width:100%;max-width:none;flex:none;padding:0}
+ body.design-two #contact-enquiry .row>.col-lg-7{flex:0 0 100%;width:100%;max-width:100%;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2.5rem,1rem + 4vw,6rem);align-items:start}
+ body.design-two #contact-enquiry .row>.col-lg-7>.text-center{margin:0!important}
+}
+
+/* Photo backgrounds for text-only sections: solid tone behind the text on the left, photo fading in on the right */
+body.design-two [data-ka-bg]{position:relative;isolation:isolate;overflow:hidden;--tone:255,253,248}
+body.design-two .section-alt[data-ka-bg]{--tone:244,239,230}
+body.design-two .cta-section[data-ka-bg]{--tone:255,255,255}
+body.design-two [data-ka-bg]::before{content:''!important;display:block!important;position:absolute;inset:0;z-index:-2;width:auto;height:auto;transform:none;font-size:0;background:none 70% center/cover no-repeat;filter:saturate(.7) contrast(1.02);opacity:0;transition:opacity 1.2s var(--ka-ease);pointer-events:none}
+body.design-two [data-ka-bg].bg-ready::before{opacity:1}
+body.design-two [data-ka-bg="sydney-melbourne"].bg-ready::before{background-image:url(../img/bg/sydney-melbourne.webp)}
+body.design-two [data-ka-bg="classroom"].bg-ready::before{background-image:url(../img/bg/classroom.webp)}
+body.design-two [data-ka-bg="campus"].bg-ready::before{background-image:url(../img/bg/campus.webp)}
+body.design-two [data-ka-bg="workspace"].bg-ready::before{background-image:url(../img/bg/workspace.webp)}
+body.design-two [data-ka-bg]::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(var(--tone),.97) 0%,rgba(var(--tone),.95) 40%,rgba(var(--tone),.78) 68%,rgba(var(--tone),.52) 100%)}
+@media(max-width:991px){body.design-two [data-ka-bg]::after{background:linear-gradient(180deg,rgba(var(--tone),.9),rgba(var(--tone),.95) 60%,rgba(var(--tone),.97))}}
+/* Sections whose text runs the full width get an even, softer photo wash so every line stays crisp */
+body.design-two :is(.intro-section,.section-alt:has(.process-steps),.section-alt:has(.audience-tile))[data-ka-bg]::after{background:linear-gradient(90deg,rgba(var(--tone),.95) 0%,rgba(var(--tone),.91) 55%,rgba(var(--tone),.86) 100%)}
+/* Nav pill: inner padding so the label never touches the outline */
+body.design-two .navbar-ka .navbar-nav .nav-link.nav-contact{padding:.625rem .875rem .625rem 1.5rem!important;gap:1.5rem}
+@media(max-width:991px){body.design-two .navbar-ka .navbar-nav .nav-link.nav-contact{padding:.875rem 1rem .875rem 1.5rem!important}}
+/* Hero text now sits low on the photo: deepen the lower half so every word keeps strong contrast */
+body.photo-page.design-two:not(.plain-page) .photo-hero::after{background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.14) 26%,rgba(0,0,0,.38) 48%,rgba(0,0,0,.8) 100%),linear-gradient(90deg,rgba(0,0,0,.4),rgba(0,0,0,0) 70%)!important}
+@media(max-width:991px){body.photo-page.design-two:not(.plain-page) .photo-hero::after{background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.22) 28%,rgba(0,0,0,.62) 52%,rgba(0,0,0,.86) 100%)!important}}

@@ -23,3 +23,11 @@ document.addEventListener('DOMContentLoaded',()=>{
  document.addEventListener('DOMContentLoaded',run);
  document.fonts?.ready.then(run);
 })();
+
+// Section background photos load only when the section comes near the viewport.
+document.addEventListener('DOMContentLoaded',()=>{
+ const els=document.querySelectorAll('[data-ka-bg]');
+ if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('bg-ready'));return;}
+ const io=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){e.target.classList.add('bg-ready');io.unobserve(e.target);}},{rootMargin:'600px 0px'});
+ els.forEach(e=>io.observe(e));
+});
