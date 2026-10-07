@@ -267,9 +267,6 @@ body.design-two .footer-ka .footer-links a{display:inline-block;padding-block:.3
 body.design-two .footer-ka .footer-links a:is(:hover,:focus-visible){background-position-x:0;background-size:100% 1px}
 body.design-two .footer-ka .arw{display:inline-block;margin-left:.15rem;opacity:.6;transition:transform .35s var(--ka-ease),opacity .35s}
 body.design-two .footer-ka a:is(:hover,:focus-visible) .arw{opacity:1;transform:translate(2px,-2px)}
-body.design-two .footer-wordmark{margin:clamp(3.5rem,2.5rem + 3vw,6rem) 0 clamp(2rem,1.5rem + 1.5vw,3.25rem);font-size:10.2cqi;font-weight:500;line-height:.82;letter-spacing:-.035em;text-transform:uppercase;white-space:nowrap;color:var(--ka-on-coffee);user-select:none;pointer-events:none}
-body.design-two .footer-wordmark .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.04em}
-body.design-two .footer-wordmark .w>span{display:inline-block}
 body.design-two .footer-ka .footer-bottom{position:relative;display:flex;align-items:center;justify-content:space-between;gap:1rem 2rem;flex-wrap:wrap;margin:0!important;padding:1.5rem 0 1.75rem;border-top:0!important;font-size:.875rem!important;color:rgba(255,253,248,.74)}
 body.design-two .footer-ka .footer-bottom::before{content:'';position:absolute;inset:0 0 auto;height:1px;background:var(--f-line);transform-origin:0 50%}
 body.design-two .footer-legal{display:flex;gap:2rem}
@@ -288,19 +285,13 @@ body.design-two .footer-ka .to-top:hover span{transform:translateY(-.25rem)}
  body.design-two .footer-ka .footer-links a{min-height:2.75rem;display:inline-flex;align-items:center}
  body.design-two .footer-ka .footer-contact .footer-links li{font-size:1.125rem!important}
  body.design-two .footer-brand .navbar-brand-ka{--logo-h:5.5rem}
- body.design-two .footer-wordmark{white-space:normal;font-size:19.5cqi}
- body.design-two .footer-wordmark .wm-line{display:block}
 }
 
 /* ---------- Motion: reveal on scroll (assets/js/ka-motion.js) ---------- */
 .ka-motion [data-ka-reveal]{opacity:0;transform:translateY(1.75rem);transition:opacity .9s var(--ka-ease),transform .9s var(--ka-ease);transition-delay:var(--ka-delay,0ms)}
 .ka-motion [data-ka-reveal].is-in{opacity:1;transform:none}
 /* footer entrance: statement lines and wordmark words rise from masks, rules draw left to right */
-.ka-motion :is(.footer-statement,.footer-wordmark,.footer-rule,.footer-bottom)[data-ka-reveal]{opacity:1;transform:none}
-.ka-motion :is(.footer-statement .line,.footer-wordmark .w)>span{transform:translateY(105%);transition:transform 1.05s cubic-bezier(.19,1,.22,1)}
 .ka-motion .footer-statement .line-2>span{transition-delay:.12s}
-.ka-motion .footer-wordmark .wm-line:first-child .w:nth-child(2)>span{transition-delay:.1s}
-.ka-motion .footer-wordmark .wm-line:last-child .w>span{transition-delay:.2s}
 .ka-motion .is-in :is(.line,.w)>span{transform:none}
 .ka-motion .footer-rule[data-ka-reveal],.ka-motion .footer-bottom[data-ka-reveal]::before{transform:scaleX(0);transition:transform 1.2s cubic-bezier(.19,1,.22,1)}
 .ka-motion .footer-rule[data-ka-reveal].is-in,.ka-motion .footer-bottom[data-ka-reveal].is-in::before{transform:scaleX(1)}
@@ -387,8 +378,6 @@ body.design-two .cta-section .cta-text{color:var(--ka-text)!important}
 body.design-two main p{line-height:1.7}
 body.design-two .policy-body :is(p,li){line-height:1.7!important}
 body.design-two .pathways .pathway p,body.design-two .audience-tile.audience-tile-light p{color:var(--ka-text)!important}
-/* Footer wordmark at 60% transparency */
-body.design-two .footer-ka .footer-wordmark{color:rgba(255,253,248,.4)}
 
 /* ======================================================================
    Round 5: home intro content — subheading + copy left, values as a 2x2 grid right.
@@ -406,3 +395,10 @@ body.home-page.design-two .editorial-values h3{font-size:clamp(1.25rem,1.1rem + 
 body.home-page.design-two .editorial-values p{text-wrap:wrap}
 @media(max-width:991px){body.home-page.design-two .intro-section .intro-body{--bs-gutter-x:1.5rem}}
 @media(max-width:575px){body.home-page.design-two .editorial-values{grid-template-columns:1fr;gap:2rem}}
+/* Footer without the wordmark: keep the statement's rise-in and space above the legal row */
+.ka-motion .footer-statement .line>span{transform:translateY(105%);transition:transform 1.05s cubic-bezier(.19,1,.22,1)}
+.ka-motion .footer-statement .line-2>span{transition-delay:.12s}
+.ka-motion .footer-statement.is-in .line>span{transform:none}
+body.design-two .footer-ka .footer-bottom{margin-top:clamp(3rem,2rem + 3vw,5rem)!important}
+.ka-motion :is(.footer-statement,.footer-rule,.footer-bottom)[data-ka-reveal]{opacity:1}
+.ka-motion :is(.footer-statement,.footer-bottom)[data-ka-reveal]{transform:none}
