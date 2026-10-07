@@ -443,15 +443,3 @@ body.design-two .footer-ka .footer-bottom{margin-top:clamp(3rem,2rem + 3vw,5rem)
 
 /* Desktop and tablet home hero: photo + city openings only; the corner panels live in the phone slider */
 @media(min-width:768px){body.home-page.design-two .hero .hero-corners{display:none!important}}
-
-/* Desktop and tablet home hero: one screen tall, two path buttons (For Teachers / For Schools) in the photo.
-   Phones keep the slider with the city openings. */
-body.home-page.design-two .hero-actions{display:none}
-@media(min-width:768px){
- body.home-page.design-two .hero{min-height:max(100svh,34rem)!important;height:max(100svh,34rem)!important;padding:0!important}
- body.home-page.design-two .hero .hero-inner{min-height:0!important;padding:0!important}
- body.home-page.design-two .hero .city-openings{display:none!important}
- body.home-page.design-two .hero-actions{position:absolute;z-index:3;left:50%;bottom:clamp(3rem,2rem + 5vh,6.5rem);transform:translateX(-50%);display:flex;gap:1rem;width:max-content}
- body.home-page.design-two .hero-actions .hero-action{min-height:3.75rem;min-width:13rem;padding:.95rem 1.1rem .95rem 1.75rem!important;font-size:1.0625rem!important;box-shadow:0 .75rem 2.5rem rgba(0,0,0,.25)!important}
- body.home-page.design-two .hero-overlay{background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 60%,rgba(0,0,0,.45) 100%)!important}
-}
