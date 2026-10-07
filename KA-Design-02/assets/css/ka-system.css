@@ -402,3 +402,41 @@ body.home-page.design-two .editorial-values p{text-wrap:wrap}
 body.design-two .footer-ka .footer-bottom{margin-top:clamp(3rem,2rem + 3vw,5rem)!important}
 .ka-motion :is(.footer-statement,.footer-rule,.footer-bottom)[data-ka-reveal]{opacity:1}
 .ka-motion :is(.footer-statement,.footer-bottom)[data-ka-reveal]{transform:none}
+
+/* ======================================================================
+   Phone-only home hero slider (assets/js/ka-motion.js sets data-slide):
+   slide 0 = Melbourne photo + Teacher Corner + Melbourne Openings,
+   slide 1 = Sydney photo + Student Corner + Sydney Openings. Desktop is unchanged.
+   ====================================================================== */
+@media(max-width:767px){
+ body.home-page.design-two .hero[data-slide]{display:flex!important;align-items:flex-end;min-height:max(100svh,40rem)!important;height:auto!important;padding:calc(var(--ka-nav-h) + 1rem) 0 8rem!important}
+ body.home-page.design-two .hero .hero-bg{background-image:none!important;overflow:hidden}
+ body.home-page.design-two .hero .hero-bg::before,body.home-page.design-two .hero .hero-bg::after{content:'';position:absolute;inset:0;background:center/cover no-repeat;transition:transform .8s cubic-bezier(.65,0,.35,1)}
+ body.home-page.design-two .hero .hero-bg::before{background-image:url(../img/hero-melbourne.webp);background-position:62% center}
+ body.home-page.design-two .hero .hero-bg::after{background-image:url(../img/hero-sydney.webp);background-position:45% center;transform:translateX(100%)}
+ body.home-page.design-two .hero[data-slide="1"] .hero-bg::before{transform:translateX(-100%)}
+ body.home-page.design-two .hero[data-slide="1"] .hero-bg::after{transform:none}
+ body.home-page.design-two .hero[data-slide] .hero-inner{width:100%;min-height:0!important;padding-top:0!important;padding-bottom:0!important;display:block!important}
+ body.home-page.design-two .hero[data-slide] .hero-corners{display:grid!important;grid-template-columns:100%!important;grid-template-areas:"slide";gap:0!important}
+ body.home-page.design-two .hero[data-slide] .corner-panel{grid-area:slide;width:100%!important;max-width:none!important;justify-self:stretch!important;align-items:flex-start!important;text-align:left!important;transition:transform .8s cubic-bezier(.65,0,.35,1),opacity .6s ease,visibility 0s linear 0s}
+ body.home-page.design-two .hero[data-slide] .corner-panel .corner-eyebrow{align-self:flex-start}
+ body.home-page.design-two .hero[data-slide="0"] .corner-panel:nth-child(2),body.home-page.design-two .hero[data-slide="1"] .corner-panel:nth-child(1){opacity:0;visibility:hidden;pointer-events:none;transition:transform .8s cubic-bezier(.65,0,.35,1),opacity .6s ease,visibility 0s linear .8s}
+ body.home-page.design-two .hero[data-slide="0"] .corner-panel:nth-child(2){transform:translateX(110%)}
+ body.home-page.design-two .hero[data-slide="1"] .corner-panel:nth-child(1){transform:translateX(-110%)}
+ body.home-page.design-two .hero[data-slide] .city-openings{display:grid!important;grid-template-areas:"pill";bottom:3.75rem!important;gap:0!important}
+ body.home-page.design-two .hero[data-slide] .city-openings a{grid-area:pill;justify-self:center;transition:transform .8s cubic-bezier(.65,0,.35,1),opacity .6s ease,visibility 0s linear 0s,background-color .25s,color .25s}
+ body.home-page.design-two .hero[data-slide="0"] .city-openings a:nth-child(2),body.home-page.design-two .hero[data-slide="1"] .city-openings a:nth-child(1){opacity:0;visibility:hidden;pointer-events:none;transition:transform .8s cubic-bezier(.65,0,.35,1),opacity .6s ease,visibility 0s linear .8s}
+ body.home-page.design-two .hero[data-slide="0"] .city-openings a:nth-child(2){transform:translateX(60%)}
+ body.home-page.design-two .hero[data-slide="1"] .city-openings a:nth-child(1){transform:translateX(-60%)}
+ body.home-page.design-two .hero-dots{position:absolute;z-index:4;left:50%;bottom:1.9rem;transform:translateX(-50%);display:flex;gap:.5rem}
+ body.home-page.design-two .hero-dots button{width:.5rem;height:.5rem;padding:0;border:0;border-radius:999px;background:rgba(255,255,255,.5);transition:width .35s var(--ka-ease),background-color .35s}
+ body.home-page.design-two .hero-dots button[aria-current=true]{width:1.5rem;background:#fff}
+ body.home-page.design-two .hero-dots button::after{content:'';position:absolute;inset:-.9rem -.4rem}
+ body.home-page.design-two .hero-dots button{position:relative}
+}
+@media(min-width:768px){body.home-page.design-two .hero-dots{display:none}}
+@media(max-width:767px) and (prefers-reduced-motion:reduce){
+ body.home-page.design-two .hero[data-slide] :is(.corner-panel,.city-openings a){transition:none!important}
+ body.home-page.design-two .hero[data-slide] .hero-bg::before,body.home-page.design-two .hero[data-slide] .hero-bg::after{transition:none!important}
+}
+@media(max-width:767px){body.home-page.design-two .hero[data-slide]:not(.slider-anim) :is(.corner-panel,.city-openings a),body.home-page.design-two .hero[data-slide]:not(.slider-anim) .hero-bg::before,body.home-page.design-two .hero[data-slide]:not(.slider-anim) .hero-bg::after{transition:none!important}}

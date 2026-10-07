@@ -23,3 +23,38 @@ document.addEventListener('DOMContentLoaded',()=>{
  document.addEventListener('DOMContentLoaded',run);
  document.fonts?.ready.then(run);
 })();
+
+// Phone-only home hero slider: Melbourne + Teacher Corner, then Sydney + Student Corner, every 2 seconds.
+// Touching, swiping or using the dots pauses it for a few seconds; it stops auto-advancing under reduced motion.
+document.addEventListener('DOMContentLoaded',()=>{
+ const hero=document.querySelector('.home-page .hero');
+ if(!hero)return;
+ const panels=[...hero.querySelectorAll('.corner-panel')],links=[...hero.querySelectorAll('.city-openings a')];
+ if(panels.length<2)return;
+ const mq=matchMedia('(max-width: 767px)'),still=matchMedia('(prefers-reduced-motion: reduce)');
+ const dots=document.createElement('div');
+ dots.className='hero-dots';
+ dots.innerHTML='<button type="button" aria-label="Show Melbourne and Teacher Corner"></button><button type="button" aria-label="Show Sydney and Student Corner"></button>';
+ hero.append(dots);
+ let i=0,timer=null,pausedUntil=0,x0=null;
+ const show=n=>{
+  i=n;hero.dataset.slide=n;
+  [...dots.children].forEach((b,k)=>b.setAttribute('aria-current',String(k===n)));
+  panels.forEach((p,k)=>p.toggleAttribute('inert',k!==n));
+  links.forEach((l,k)=>l.toggleAttribute('inert',k!==n));
+ };
+ const pause=ms=>{pausedUntil=Date.now()+ms;};
+ const start=()=>{
+  clearInterval(timer);
+  if(!mq.matches){delete hero.dataset.slide;panels.forEach(p=>p.removeAttribute('inert'));links.forEach(l=>l.removeAttribute('inert'));return;}
+  show(i);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>hero.classList.add('slider-anim')));
+  if(!still.matches)timer=setInterval(()=>{if(Date.now()>=pausedUntil&&!document.hidden)show((i+1)%2);},2000);
+ };
+ dots.addEventListener('click',e=>{const b=e.target.closest('button');if(b){show([...dots.children].indexOf(b));pause(6000);}});
+ hero.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;pause(6000);},{passive:true});
+ hero.addEventListener('touchend',e=>{if(x0!==null&&Math.abs(e.changedTouches[0].clientX-x0)>40&&mq.matches)show((i+1)%2);x0=null;},{passive:true});
+ hero.addEventListener('focusin',()=>pause(8000));
+ mq.addEventListener('change',start);still.addEventListener('change',start);
+ start();
+});
