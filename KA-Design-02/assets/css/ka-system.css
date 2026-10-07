@@ -440,3 +440,6 @@ body.design-two .footer-ka .footer-bottom{margin-top:clamp(3rem,2rem + 3vw,5rem)
  body.home-page.design-two .hero[data-slide] .hero-bg::before,body.home-page.design-two .hero[data-slide] .hero-bg::after{transition:none!important}
 }
 @media(max-width:767px){body.home-page.design-two .hero[data-slide]:not(.slider-anim) :is(.corner-panel,.city-openings a),body.home-page.design-two .hero[data-slide]:not(.slider-anim) .hero-bg::before,body.home-page.design-two .hero[data-slide]:not(.slider-anim) .hero-bg::after{transition:none!important}}
+
+/* Desktop and tablet home hero: photo + city openings only; the corner panels live in the phone slider */
+@media(min-width:768px){body.home-page.design-two .hero .hero-corners{display:none!important}}
