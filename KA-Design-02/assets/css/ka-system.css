@@ -333,7 +333,7 @@ body.home-page.design-two .intro-section .row{align-items:flex-start!important}
 
 /* ======================================================================
    Round 3: one description size at the headline's left edge,
-   photo backgrounds for text-only sections, smaller header logo.
+   smaller header logo.
    ====================================================================== */
 :root{--ka-fs-lead:clamp(1.125rem,1.02rem + .35vw,1.25rem);--ka-nav-h:7.5625rem}
 @media(max-width:991px){:root{--ka-nav-h:6.0625rem}}
@@ -366,23 +366,26 @@ body.design-two .section-alt:has(#register) .mx-auto{margin-left:0!important}
  body.design-two #contact-enquiry .row>.col-lg-7>.text-center{margin:0!important}
 }
 
-/* Photo backgrounds for text-only sections: solid tone behind the text on the left, photo fading in on the right */
-body.design-two [data-ka-bg]{position:relative;isolation:isolate;overflow:hidden;--tone:255,253,248}
-body.design-two .section-alt[data-ka-bg]{--tone:244,239,230}
-body.design-two .cta-section[data-ka-bg]{--tone:255,255,255}
-body.design-two [data-ka-bg]::before{content:''!important;display:block!important;position:absolute;inset:0;z-index:-2;width:auto;height:auto;transform:none;font-size:0;background:none 70% center/cover no-repeat;filter:saturate(.7) contrast(1.02);opacity:0;transition:opacity 1.2s var(--ka-ease);pointer-events:none}
-body.design-two [data-ka-bg].bg-ready::before{opacity:1}
-body.design-two [data-ka-bg="sydney-melbourne"].bg-ready::before{background-image:url(../img/bg/sydney-melbourne.webp)}
-body.design-two [data-ka-bg="classroom"].bg-ready::before{background-image:url(../img/bg/classroom.webp)}
-body.design-two [data-ka-bg="campus"].bg-ready::before{background-image:url(../img/bg/campus.webp)}
-body.design-two [data-ka-bg="workspace"].bg-ready::before{background-image:url(../img/bg/workspace.webp)}
-body.design-two [data-ka-bg]::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(var(--tone),.97) 0%,rgba(var(--tone),.95) 40%,rgba(var(--tone),.78) 68%,rgba(var(--tone),.52) 100%)}
-@media(max-width:991px){body.design-two [data-ka-bg]::after{background:linear-gradient(180deg,rgba(var(--tone),.9),rgba(var(--tone),.95) 60%,rgba(var(--tone),.97))}}
-/* Sections whose text runs the full width get an even, softer photo wash so every line stays crisp */
-body.design-two :is(.intro-section,.section-alt:has(.process-steps),.section-alt:has(.audience-tile))[data-ka-bg]::after{background:linear-gradient(90deg,rgba(var(--tone),.95) 0%,rgba(var(--tone),.91) 55%,rgba(var(--tone),.86) 100%)}
 /* Nav pill: inner padding so the label never touches the outline */
 body.design-two .navbar-ka .navbar-nav .nav-link.nav-contact{padding:.625rem .875rem .625rem 1.5rem!important;gap:1.5rem}
 @media(max-width:991px){body.design-two .navbar-ka .navbar-nav .nav-link.nav-contact{padding:.875rem 1rem .875rem 1.5rem!important}}
 /* Hero text now sits low on the photo: deepen the lower half so every word keeps strong contrast */
 body.photo-page.design-two:not(.plain-page) .photo-hero::after{background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.14) 26%,rgba(0,0,0,.38) 48%,rgba(0,0,0,.8) 100%),linear-gradient(90deg,rgba(0,0,0,.4),rgba(0,0,0,0) 70%)!important}
 @media(max-width:991px){body.photo-page.design-two:not(.plain-page) .photo-hero::after{background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.22) 28%,rgba(0,0,0,.62) 52%,rgba(0,0,0,.86) 100%)!important}}
+
+/* ======================================================================
+   Round 4: bold headlines; every paragraph shares one size, colour and line height.
+   ====================================================================== */
+:root{--ka-fs-lead:1.125rem;--ka-fs-body:1.125rem;--ka-text:#36332e;--ka-muted:#36332e}
+body.design-two :is(h1,h2,.h1,.h2,.display-heading,.story-heading,.cta-heading),
+body.design-two .pathways .pathway h3,body.design-two .team-card h2,body.design-two .audience-tile h3,
+body.design-two main .section .policy-body h2,body.design-two .cta-section .cta-heading{font-weight:600!important;letter-spacing:-.025em!important}
+body.design-two :is(.section-description,.intro-copy,.story-intro,.about-lead,.section-top>p,.photo-hero-description,.cta-section .cta-text,.intro-tagline,.intro-note){line-height:1.7!important}
+body.design-two main :is(.value-card,.pathway,.process-step,.editorial-values,.team-card,.audience-tile) p{line-height:1.7!important}
+body.home-page.design-two .intro-tagline span{color:inherit}
+body.design-two .cta-section .cta-text{color:var(--ka-text)!important}
+body.design-two main p{line-height:1.7}
+body.design-two .policy-body :is(p,li){line-height:1.7!important}
+body.design-two .pathways .pathway p,body.design-two .audience-tile.audience-tile-light p{color:var(--ka-text)!important}
+/* Footer wordmark at 60% transparency */
+body.design-two .footer-ka .footer-wordmark{color:rgba(255,253,248,.4)}
